@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta id="meta_viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <title>页面标题</title>
+    <script type="text/javascript">
+        var designWidth = 750;
+        if (window.innerWidth < designWidth) {
+            document.getElementsByTagName('html').item(0).style.fontSize = parseInt(window.innerWidth / designWidth * 100, 10) + 'px';
+        }
+    </script>
+ 	<style>
+		*{-webkit-appearance: none;margin:0;padding:0;}
+		html{ font-size: 100px; font-family: "microsoft yahei"; }
+		body{ -webkit-overflow-scrolling: touch;font-size:0.2rem;font-family:"microsoft yahei","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+		a{color:#2d374b;text-decoration:none}
+		a:hover{color:#cd0200;text-decoration:none}
+		em{font-style:normal}
+		li{list-style:none}
+		img{border:0;vertical-align:middle}table{border-collapse:collapse;border-spacing:0}
+		.container{max-width: 750px;margin: 0 auto;display: flex;height: 13.34rem; width: 100%;flex-direction:column;background: url(./bg_03.png) 0 0 no-repeat;background-size: cover;}
+		.content{flex: 1;overflow: scroll;}
+		.button{position:relative;top: 71.6%;width: 6.85rem;height: 0.72rem;margin: 0 auto;}
+		.phoneInput{position:relative;top: 69.3%;width:6.85rem;height:0.72rem;background-size: contain;margin: 0 auto;}
+		.phoneInput input{
+			margin: 0 auto;
+			width:6.85rem;
+			height:0.72rem;
+			background-color: transparent;
+			border:1px solid rgba(255,255,255,.4);
+			border-radius: 3px;
+			font-size: 16px;
+			color: #fff;
+			text-align: center;
+		}
+		.priceText{
+			position:relative;
+			top: 70.1%;
+			margin: 0 auto;
+			width:6.85rem;
+			height:0.72rem;
+			font-size: 16px;
+			color: #F8DFE6;
+			display: none;
+			text-align: center;
+		}
+		.getImage{
+			background: url(./get-btn.png) 0 0 no-repeat;
+			background-size: contain;
+		}
+		.useImage{
+			background: url(./use-btn.png) 0 0 no-repeat;
+			background-size: contain;
+		}
+		.useButton{
+			display: none;
+		}
+		p{word-wrap:break-word;text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;}
+		p.line1{-webkit-line-clamp: 1;}
+		div{background: center no-repeat;background-size: contain;}
+ 	</style>
+</head>
+<body>
+	
+	<!--内容开始-->
+	<div class="container">
+
+		<!--content-->
+		<div class="content">
+			<div class="phoneInput" style="">
+				<input type="text" name="手机号" placeholder="输入手机号，领取优惠" id="phone">
+			</div>
+			<div class="priceText"></div>
+			<div class="button getImage getButton"></div>
+			<div class="button useImage useButton"></div>
+		</div>
+	</div>
+    <!--内容结束-->
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+   
+    <script type="text/javascript" src="jweixin-1.0.0.js"></script>
+    <!--<script type="text/javascript" src="js/common.js" ></script>-->
+     <script>
+    	$(function(){
+					$('.container').height($(window).height())
+					$(".getButton").on("click",function(){
+						var phoneNumber = $("#phone").val();
+						checkPhone(phoneNumber)
+					})
+					$(".useButton").on("click",function(){
+						alert("666");
+					})
+					function checkPhone(phone){ 
+    					if(!(/^1[34578]\d{9}$/.test(phone))){ 
+				        alert("手机号码有误，请重填");  
+				        return false; 
+				    	}else {
+				    		$(".getButton").css("display","none"); 
+				    		$(".useButton").css("display","block"); 
+				    		$(".priceText").css("display","block").text("礼包已放入账号："+phone);
+				    		$(".phoneInput").css("display","none");
+				    	}
+					}
+	    });
+    	
+    </script>
+</body>
+</html>
