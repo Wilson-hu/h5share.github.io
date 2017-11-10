@@ -17,16 +17,17 @@
 		a{color:#2d374b;text-decoration:none}
 		a:hover{color:#cd0200;text-decoration:none}
 		em{font-style:normal}
-		li{list-style:none}
-		img{border:0;vertical-align:middle}table{border-collapse:collapse;border-spacing:0}
+		img{border:0;vertical-align:middle;max-width: 100%;}
 		.container{
+					width: 100%;
 					margin: 0 auto;
 					display: flex;
 					height: 100%; 
-					width: 100%;
 					flex-direction:column;
 					background: url(./bg_03.png) 0 0 no-repeat;
 					background-size: cover;
+/*					background: url(./bg_03.png) 0 0 no-repeat;
+					background-size: cover;*/
 			}
 		.content{flex: 1;overflow: scroll;}
 		.button{position:relative;top: 71.6%;width: 6.85rem;height: 0.72rem;margin: 0 auto;}
@@ -73,7 +74,7 @@
 	
 	<!--内容开始-->
 	<div class="container">
-
+		<!-- <img src="./bg_03.png" alt="" width="max-width:100%"> -->
 		<!--content-->
 		<div class="content">
 			<div class="phoneInput" style="">
