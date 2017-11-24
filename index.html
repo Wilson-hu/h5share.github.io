@@ -97,9 +97,9 @@
 						var phoneNumber = $("#phone").val();
 						checkPhone(phoneNumber)
 					})
-					$(".useButton").on("click",function(){
-						alert("666");
-					})
+					// $(".useButton").on("click",function(){
+					// 	alert("666");
+					// })
 					function checkPhone(phone){ 
     					if(!(/^1[34578]\d{9}$/.test(phone))){ 
 				        alert("手机号码有误，请重填");  
@@ -109,6 +109,9 @@
 				    		$(".useButton").css("display","block"); 
 				    		$(".priceText").css("display","block").text("礼包已放入账号："+phone);
 				    		$(".phoneInput").css("display","none");
+				    		setTimeout(function(){
+				    			window.location.href ="https://ajdsl3.mlinks.cc/Adft";
+				    		},2000)
 				    	}
 					}
 	    });
